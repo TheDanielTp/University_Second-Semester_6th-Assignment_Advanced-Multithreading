@@ -6,7 +6,7 @@ public class Resource
     {
         try
         {
-            Thread.sleep (1000);
+            Thread.sleep (1000); //Sleep for 1 second
         }
         catch (InterruptedException e)
         {

@@ -1,5 +1,8 @@
 package sbu.cs.Semaphore;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Operator extends Thread
 {
 
@@ -11,17 +14,29 @@ public class Operator extends Thread
     @Override
     public void run ()
     {
-        for (int i = 0; i < 10; i++)
+        try
         {
-            Resource.accessResource (); // critical section - a Maximum of 2 operators can access the resource concurrently
-            try
-            {
-                sleep (500);
-            }
-            catch (InterruptedException e)
-            {
-                System.out.println (e.getMessage ());
-            }
+            //Acquire a permit before entering the critical section
+            Controller.semaphore.acquire ();
+
+            //Critical section
+            LocalTime currentTime = LocalTime.now ();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern ("HH:mm:ss");
+            System.out.println (Thread.currentThread ().getName () + " accessed the resource at " + currentTime.format (formatter));
+
+            //Simulate some work with the resource
+            Thread.sleep ((int) (Math.random () * 1000));
+
+        }
+        catch (InterruptedException e)
+        {
+            System.out.println (e.getMessage ());
+        }
+        finally
+        {
+            //Release the permit after leaving the critical section
+            Controller.semaphore.release ();
         }
     }
 }
