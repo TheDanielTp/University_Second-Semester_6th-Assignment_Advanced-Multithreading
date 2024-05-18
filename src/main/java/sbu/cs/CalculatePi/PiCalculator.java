@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class PiCalculator
 {
-    private static final int NUM_THREADS = Runtime.getRuntime ().availableProcessors ();
+    private static final int NUM_THREADS = Runtime.getRuntime ().availableProcessors (); //Set number of threads according to available processors
 
     public String calculate (int floatingPoint)
     {
