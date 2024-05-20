@@ -18,15 +18,13 @@ public class Operator extends Thread
         {
             //Acquire a permit before entering the critical section
             Controller.semaphore.acquire ();
+            Resource.accessResource ();
 
             //Critical section
             LocalTime currentTime = LocalTime.now ();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern ("HH:mm:ss");
             System.out.println (Thread.currentThread ().getName () + " accessed the resource at " + currentTime.format (formatter));
-
-            //Simulate some work with the resource
-            Thread.sleep ((int) (Math.random () * 1000));
 
         }
         catch (InterruptedException e)
