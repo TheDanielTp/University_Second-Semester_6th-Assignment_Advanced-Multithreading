@@ -176,7 +176,7 @@ Real-World Simulation: The program simulates a realistic scenario where multiple
 
 
 <!-- LICENSE -->
-## 🔵 License
+## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
@@ -185,7 +185,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
-## 🟣 Contact
+## Contact
 
 My Email - prof.danial4@gmail.com
 
